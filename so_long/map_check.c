@@ -17,13 +17,10 @@ void	check_ber(char *map_name)
 	int	len;
 
 	len = ft_strlen(map_name);
-	if (len >= 5)
+	if (len <= 4 || ft_strcmp(&map_name[len - 3], ".ber"))
 	{
-		if (ft_strncmp(&(map_name[len - 4]), ".ber", 4))
-			error_exit("Invalid map extention");
+		error_exit("Invalid map extention\n");
 	}
-	else
-		error_exit("Invalid map extention");
 }
 
 void	check_boundary(t_map *map_info)
